@@ -207,7 +207,7 @@ export default function MenuPage() {
             className="rounded-2xl border border-(--color-border) bg-(--color-surface) p-6">
             <div className="flex items-start justify-between gap-5">
               <h2 className="text-2xl">{item.name}</h2>
-              <span className="rounded-full bg-(--color-accent)/30 px-3 py-1 text-sm font-semibold text-(--color-primary)">
+              <span className="rounded-full bg-accent/30 px-3 py-1 text-sm font-semibold text-(--color-primary)">
                 {item.price}
               </span>
             </div>
