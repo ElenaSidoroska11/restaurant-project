@@ -18,7 +18,6 @@ A modern restaurant website for Aster & Oak, a Mediterranean dining concept. The
 - Menu item image galleries using local images from `public/menu`
 - Reservation form with date, time, guest count, and client-side validation
 - Contact page with restaurant details, opening hours, social links, and an OpenStreetMap embed
-- Optimized fonts and image handling through Next.js
 
 ## Getting Started
 
@@ -77,11 +76,8 @@ public/menu/        Local menu item images
 
 ## Deployment on Vercel
 
-
-After deployment, add the live Vercel URL here:
-
 ```text
-Production URL: https://your-project-name.vercel.app
+Production URL: https://restaurant-project-chi-liard.vercel.app/
 ```
 
 ## Notes
