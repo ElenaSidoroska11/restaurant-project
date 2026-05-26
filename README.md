@@ -1,37 +1,91 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Aster & Oak Restaurant Website
+
+A modern restaurant website for Aster & Oak, a Mediterranean dining concept. The app includes a landing page, menu browsing, reservation form, contact details, opening hours, social links, and an embedded location map.
+
+## Tech Stack
+
+- Next.js
+- React
+- TypeScript
+- Tailwind CSS
+- shadcn/ui with Radix UI primitives
+- Lucide React
+
+## Features
+
+- Responsive restaurant homepage with featured dishes and calls to action
+- Categorized menu for starters, mains, desserts, and drinks
+- Menu item image galleries using local images from `public/menu`
+- Reservation form with date, time, guest count, and client-side validation
+- Contact page with restaurant details, opening hours, social links, and an OpenStreetMap embed
+- Optimized fonts and image handling through Next.js
 
 ## Getting Started
 
-First, run the development server:
+Install dependencies:
+
+```bash
+npm install
+```
+
+Run the development server:
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000) in your browser.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Available Scripts
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```bash
+npm run dev
+```
 
-## Learn More
+Starts the local development server.
 
-To learn more about Next.js, take a look at the following resources:
+```bash
+npm run build
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Creates a production build.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+```bash
+npm run start
+```
 
-## Deploy on Vercel
+Runs the production build locally after `npm run build`.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+```bash
+npm run lint
+```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
-# restaurant-project
+Runs ESLint.
+
+## Project Structure
+
+```text
+app/
+  contact/          Contact page
+  menu/             Menu page with item galleries
+  reservations/     Reservation form page
+  components/       Site header and footer
+components/ui/      Reusable UI components
+lib/                Menu, contact, reservation, and utility data
+public/menu/        Local menu item images
+```
+
+## Deployment on Vercel
+
+
+After deployment, add the live Vercel URL here:
+
+```text
+Production URL: https://your-project-name.vercel.app
+```
+
+## Notes
+
+- The reservation form currently validates and displays a success message on the client. It does not send data to a backend or email service yet.
+- Menu images are stored locally in `public/menu`.
+- `next.config.ts` allows fallback remote images from `picsum.photos`.

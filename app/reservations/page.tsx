@@ -168,7 +168,7 @@ export default function ReservationsPage() {
               <label htmlFor="time" className="mb-2 block text-sm font-medium">
                 Time
               </label>
-              <Select value={form.time || null} onValueChange={(value) => updateField("time", value ?? "")}>
+              <Select value={form.time || undefined} onValueChange={(value) => updateField("time", value)}>
                 <SelectTrigger id="time" className={selectTriggerClassName} aria-invalid={!!errors.time}>
                   <SelectValue placeholder="Select time" />
                 </SelectTrigger>
@@ -187,8 +187,8 @@ export default function ReservationsPage() {
                 Guests
               </label>
               <Select
-                value={form.guests || null}
-                onValueChange={(value) => updateField("guests", value ?? "")}>
+                value={form.guests || undefined}
+                onValueChange={(value) => updateField("guests", value)}>
                 <SelectTrigger id="guests" className={selectTriggerClassName} aria-invalid={!!errors.guests}>
                   <SelectValue placeholder="Select guests" />
                 </SelectTrigger>

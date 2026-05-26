@@ -232,7 +232,7 @@ export default function MenuPage() {
                   setSelectedImageIndex(0);
                   setOpenGalleryFor(item.name);
                 }}
-                className="inline-flex h-9 w-9 items-center justify-center rounded-full border border-(--color-border) text-(--color-text-muted) transition-colors hover:bg-(--color-accent)/20 hover:text-(--color-text)"
+                className="inline-flex h-9 w-9 items-center justify-center rounded-full border border-(--color-border) text-(--color-text-muted) transition-colors hover:bg-accent/20 hover:text-(--color-text)"
                 aria-label={`Open gallery for ${item.name}`}>
                 <Images size={16} />
               </button>
@@ -249,7 +249,7 @@ export default function MenuPage() {
               <button
                 type="button"
                 onClick={() => setOpenGalleryFor(null)}
-                className="inline-flex h-9 w-9 items-center justify-center rounded-full border border-(--color-border) text-(--color-text-muted) transition-colors hover:bg-(--color-accent)/20 hover:text-(--color-text)"
+                className="inline-flex h-9 w-9 items-center justify-center rounded-full border border-(--color-border) text-(--color-text-muted) transition-colors hover:bg-accent/20 hover:text-(--color-text)"
                 aria-label="Close gallery">
                 <X size={16} />
               </button>
