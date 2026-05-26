@@ -21,6 +21,9 @@ export const metadata: Metadata = {
   title: "Aster & Oak | Modern Mediterranean Restaurant",
   description:
     "Aster & Oak is a modern Mediterranean restaurant experience with curated dishes, elegant atmosphere, and seamless table reservations.",
+  icons: {
+    icon: [{ url: "/favicon.svg", type: "image/svg+xml" }],
+  },
 };
 
 export default function RootLayout({
