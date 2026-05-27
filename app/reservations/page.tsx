@@ -94,7 +94,7 @@ export default function ReservationsPage() {
               value={form.fullName}
               onChange={(e) => updateField("fullName", e.target.value)}
               className="w-full rounded-xl border border-(--color-border) bg-white px-4 py-3 text-sm outline-none transition-colors focus:border-(--color-primary)"
-              placeholder="Elena Sidoroska"
+              placeholder="John Doe"
             />
             {errors.fullName ? (
               <p className="mt-2 text-xs text-(--color-support)">{errors.fullName}</p>
