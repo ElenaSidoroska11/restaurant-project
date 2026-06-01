@@ -189,7 +189,7 @@ export default function MenuPage() {
               key={category}
               type="button"
               onClick={() => setSelectedCategory(category)}
-              className={`rounded-full border px-5 py-2 text-sm font-medium transition-colors ${
+              className={`cursor-pointer rounded-full border px-5 py-2 text-sm font-medium transition-colors ${
                 isActive
                   ? "border-(--color-primary) bg-(--color-primary) text-white"
                   : "border-(--color-border) bg-(--color-surface) text-(--color-text-muted) hover:text-(--color-text)"
@@ -232,7 +232,7 @@ export default function MenuPage() {
                   setSelectedImageIndex(0);
                   setOpenGalleryFor(item.name);
                 }}
-                className="inline-flex h-9 w-9 items-center justify-center rounded-full border border-(--color-border) text-(--color-text-muted) transition-colors hover:bg-accent/20 hover:text-(--color-text)"
+                className="inline-flex h-9 w-9 cursor-pointer items-center justify-center rounded-full border border-(--color-border) text-(--color-text-muted) transition-colors hover:bg-(--color-background) hover:text-(--color-text)"
                 aria-label={`Open gallery for ${item.name}`}>
                 <Images size={16} />
               </button>
