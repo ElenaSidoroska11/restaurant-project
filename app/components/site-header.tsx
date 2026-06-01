@@ -2,7 +2,9 @@
 
 import { Menu, X } from "lucide-react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { useState } from "react";
+import { cn } from "@/lib/utils";
 
 const navLinks = [
   { label: "Home", href: "/" },
@@ -11,7 +13,25 @@ const navLinks = [
   { label: "Contact", href: "/contact" },
 ];
 
+function isNavLinkActive(pathname: string, href: string) {
+  if (href === "/") {
+    return pathname === "/";
+  }
+
+  return pathname === href || pathname.startsWith(`${href}/`);
+}
+
+const navLinkClassName =
+  "rounded-full px-4 py-2 text-(--color-text-muted) transition-colors hover:bg-(--color-background) hover:text-(--color-text)";
+
+const mobileNavLinkClassName =
+  "block rounded-xl px-4 py-3 text-(--color-text-muted) transition-colors hover:bg-(--color-background) hover:text-(--color-text)";
+
+const activeNavLinkClassName =
+  "bg-(--color-background) font-semibold !text-(--color-primary) hover:!text-(--color-primary)";
+
 export function SiteHeader() {
+  const pathname = usePathname();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   return (
@@ -21,17 +41,22 @@ export function SiteHeader() {
           Aster <span className="text-(--color-accent)">&amp;</span> Oak
         </Link>
         <nav className="hidden md:block" aria-label="Main navigation">
-          <ul className="flex items-center gap-5 text-sm font-medium text-(--color-text-muted) md:gap-8">
-            {navLinks.map((link) => (
-              <li key={link.href}>
-                <Link
-                  className="rounded-full px-4 py-2 transition-colors hover:bg-(--color-background) hover:text-(--color-text)"
-                  href={link.href}
-                >
-                  {link.label}
-                </Link>
-              </li>
-            ))}
+          <ul className="flex items-center gap-5 text-sm font-medium md:gap-8">
+            {navLinks.map((link) => {
+              const isActive = isNavLinkActive(pathname, link.href);
+
+              return (
+                <li key={link.href}>
+                  <Link
+                    aria-current={isActive ? "page" : undefined}
+                    className={cn(navLinkClassName, isActive && activeNavLinkClassName)}
+                    href={link.href}
+                  >
+                    {link.label}
+                  </Link>
+                </li>
+              );
+            })}
           </ul>
         </nav>
         <button
@@ -51,18 +76,23 @@ export function SiteHeader() {
           className="border-t border-(--color-border) px-6 py-4 md:hidden"
           aria-label="Mobile navigation"
         >
-          <ul className="flex flex-col gap-4 text-sm font-medium text-(--color-text-muted)">
-            {navLinks.map((link) => (
-              <li key={link.href}>
-                <Link
-                  className="block rounded-xl px-4 py-3 transition-colors hover:bg-(--color-background) hover:text-(--color-text)"
-                  href={link.href}
-                  onClick={() => setIsMenuOpen(false)}
-                >
-                  {link.label}
-                </Link>
-              </li>
-            ))}
+          <ul className="flex flex-col gap-4 text-sm font-medium">
+            {navLinks.map((link) => {
+              const isActive = isNavLinkActive(pathname, link.href);
+
+              return (
+                <li key={link.href}>
+                  <Link
+                    aria-current={isActive ? "page" : undefined}
+                    className={cn(mobileNavLinkClassName, isActive && activeNavLinkClassName)}
+                    href={link.href}
+                    onClick={() => setIsMenuOpen(false)}
+                  >
+                    {link.label}
+                  </Link>
+                </li>
+              );
+            })}
           </ul>
         </nav>
       ) : null}
